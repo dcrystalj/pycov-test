@@ -1,4 +1,4 @@
-import a
+import src.a as a
 
 
 def test_covered():
