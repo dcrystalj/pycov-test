@@ -1,6 +1,7 @@
-def test_true():
-    assert True is True
+import a
 
 
-def test_fail():
-    assert True is False
+def test_covered():
+    assert a.greet(6) is True
+    assert a.greet(7) is True
+    assert a.greet(8) is True
