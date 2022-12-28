@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       COVERAGE_SINGLE: 20
-      COVERAGE_TOTAL: 20
+      COVERAGE_TOTAL: 70
 
     steps:
     - uses: actions/checkout@main
@@ -30,16 +30,16 @@ jobs:
         cov-threshold-single: ${{ env.COVERAGE_SINGLE }}
         cov-threshold-total: ${{ env.COVERAGE_TOTAL }}
 
-    - name: Coverage single fail - exit
+    - name: Coverage single file fail - exit
       if: ${{ steps.pytester-cov.outputs.cov-threshold-single-fail == 'true' }}
       run: |
-        echo "cov single fail ${{ steps.pytester-cov.outputs.cov-threshold-single-fail }} ${{ steps.pytester-cov.outputs.output-table }}"
+        echo "coverage single fail fail ${{ steps.pytester-cov.outputs.output-table }}"
         exit 1
 
     - name: Coverage total fail - exit
       if: ${{ steps.pytester-cov.outputs.cov-threshold-total-fail == 'true' }}
       run: |
-        echo "cov single fail ${{ steps.pytester-cov.outputs.cov-threshold-total-fail }}"
+        echo "coverage total fail ${{ steps.pytester-cov.outputs.output-table }}"
         exit 1
 
     - name: Commit pytest coverage table
