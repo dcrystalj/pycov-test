@@ -6,8 +6,8 @@ jobs:
 
     runs-on: ubuntu-latest
     env:
-      COVERAGE_SINGLE: 60
-      COVERAGE_TOTAL: 60
+      COVERAGE_SINGLE: 20
+      COVERAGE_TOTAL: 20
 
     steps:
     - uses: actions/checkout@main
@@ -42,7 +42,7 @@ jobs:
     - name: Coverage single fail - exit
       if: ${{ steps.pytester-cov.outputs.cov-threshold-single-fail == 'true' }}
       run: |
-        echo "cov single fail ${{ steps.pytester-cov.outputs.cov-threshold-single-fail }}"
+        echo "cov single fail ${{ steps.pytester-cov.outputs.cov-threshold-single-fail }} ${{ steps.pytester-cov.outputs.output-table }}"
         exit 1
 
     # - name: Coverage total fail - new issue
