@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       COVERAGE_SINGLE: 20
-      COVERAGE_TOTAL: 70
+      COVERAGE_TOTAL: 20
 
     steps:
     - uses: actions/checkout@main
